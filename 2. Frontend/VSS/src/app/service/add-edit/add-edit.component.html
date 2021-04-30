@@ -1,0 +1,31 @@
+<div class="center">
+<form #addEditForm='ngForm' (ngSubmit)="onSubmit()">
+    <div>
+        <label>Job Card</label>
+        <select name="jobcard" required [(ngModel)]="item.jobcard.id">
+            <option *ngFor="let jobcard of jobCardList" [value]="jobcard.id">{{ jobcard.issues }} - {{
+                jobcard.vehicle.regNo }} - {{ jobcard.vehicle.customer.name }}</option>
+        </select>
+    </div>
+    <div>
+        <label>Type</label>
+        <input type="text" name="type" required [(ngModel)]="item.type">
+    </div>
+
+    <div>
+        <label>Employee</label>
+        <select name="employee" required [(ngModel)]="item.employee.id">
+            <option *ngFor="let employee of employeeList" [value]="employee.id">{{ employee['name'] }}</option>
+        </select>
+    </div>
+    <div>
+        <label>Date</label>
+        <input type="date" name="date" required [(ngModel)]="item.date">
+    </div>
+
+    <div>
+        <input type="submit" [disabled]="!addEditForm.form.valid">
+        <input type="reset">
+    </div>
+</form>
+</div>

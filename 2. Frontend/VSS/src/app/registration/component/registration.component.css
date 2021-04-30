@@ -1,0 +1,19 @@
+.myVehicleList {
+  list-style-type: none;
+  padding: 0;
+}
+
+.myVehicleList li {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 5px;
+  /* border: 1px solid black; */
+}
+
+.myVehicleList li > * {
+  padding: 10px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

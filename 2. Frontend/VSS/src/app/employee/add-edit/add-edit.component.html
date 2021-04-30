@@ -1,0 +1,24 @@
+<div class="center">
+<form #addEditForm='ngForm' (ngSubmit)="onSubmit()">
+    <div>
+        <label>Name</label>
+        <input type="text" name="name" required [(ngModel)]="item.name">
+    </div>
+    <div>
+        <label>Contact</label>
+        <input type="number" name="contact" required [(ngModel)]="item.contact">
+    </div>
+    <div>
+        <label>Type</label>
+        <input type="text" name="type" required [(ngModel)]="item.type">
+    </div>
+    <div>
+        <label>Doj</label>
+        <input type="date" name="doj" required [(ngModel)]="item.doj">
+    </div>
+    <div>
+        <input type="submit" [disabled]="!addEditForm.form.valid">
+        <input type="reset">
+    </div>
+</form>
+</div>

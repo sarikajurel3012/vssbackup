@@ -1,0 +1,28 @@
+<div class="center">
+<form #addEditForm='ngForm' (ngSubmit)="onSubmit()">
+    <div>
+        <label>Service</label>
+        <select name="service" required [(ngModel)]="item.service.id">
+            <option *ngFor="let service of serviceList" [value]="service.id">{{ service.jobcard.id }} - {{
+                service.jobcard.issues }} - {{ service.employee.name }} - {{ service.jobcard.vehicle.customer.name }} -
+                {{ service.date }}</option>
+        </select>
+    </div>
+    <div>
+        <label>Labour Charges</label>
+        <input type="number" name="labourCharges" required [(ngModel)]="item.labourCharges">
+    </div>
+    <div>
+        <label>Service Charges</label>
+        <input type="number" name="serviceCharges" required [(ngModel)]="item.serviceCharges">
+    </div>
+    <div>
+        <label>Date</label>
+        <input type="date" name="date" required [(ngModel)]="item.date">
+    </div>
+    <div>
+        <input type="submit" [disabled]="!addEditForm.form.valid">
+        <input type="reset">
+    </div>
+</form>
+</div>

@@ -1,0 +1,53 @@
+<div>
+
+    <div>
+        <label>Is New Customer?</label>
+        <input type="checkbox" [formControl]="isNewCustomer">
+
+        <div *ngIf='isNewCustomer.value'>
+            <input type="text" [formControl]="CustomerName" placeholder="Name">
+            <input type="text" [formControl]="CustomerContact" placeholder="Contact">
+            <input type="text" [formControl]="CustomerAddress" placeholder="Address">
+        </div>
+        <div *ngIf='!isNewCustomer.value'>
+            <input type="text" [formControl]="CustId" placeholder="Cust Id">
+            <input type="button" value="Show Vehicles" (click)="showVehicles()">
+        </div>
+    </div>
+    <div>
+        <h2>My Vehicles</h2>
+        <ul class="myVehicleList">
+            <li *ngFor="let vehicle of myVehicles">
+                <div>
+                    <div>{{ vehicle['model'] }}</div>
+                </div>
+                <div>
+                    <div>{{ vehicle['regNo'] }}</div>
+                </div>
+                <div>
+                    <button routerLink="{{ '/jobcard/' + vehicle['id'] }}">Service</button>
+                </div>
+                <div>
+                    <button>History</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <h2>Vehicle Registration</h2>
+        <input type="text" [formControl]="RegNo" placeholder="Reg No">
+        <input type="text" [formControl]="VehicleModel" placeholder="Vehicle Model">
+        <input type="text" [formControl]="EngineNo" placeholder="Engine No">
+        <input type="text" [formControl]="ChasisNo" placeholder="Chasis No">
+    </div>
+    <div>
+        <h2>Insurance Details</h2>
+        <input type="date" [formControl]="InsuranceDate" placeholder="Insurance Date">
+        <input type="text" [formControl]="InsuranceDuration" placeholder="Insurance Duration">
+        <input type="text" [formControl]="InsuranceAmount" placeholder="Insurance Amount">
+        <input type="text" [formControl]="InsuranceNominee" placeholder="Insurance Nominee">
+    </div>
+
+    <input type="submit" value="Create New Job Card" (click)="onSubmit()">
+
+</div>

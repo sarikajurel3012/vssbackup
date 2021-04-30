@@ -1,0 +1,91 @@
+@import "~angular-notifier/styles";
+
+// @import '~@swimlane/ngx-datatable/index.css';
+// @import '~@swimlane/ngx-datatable/themes/material.scss';
+@import "~@swimlane/ngx-datatable/assets/icons.css";
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+* {
+    font-family: "Montserrat", sans-serif;
+    box-sizing: border-box;
+}
+
+body,
+head {
+    margin: 0;
+    padding: 0;
+}
+
+.ngx-datatable {
+    margin-bottom: 40px;
+
+    .datatable-header {
+        font-weight: bold;
+        margin-bottom: 20px;
+        border-bottom: solid 1px grey;
+        user-select: none;
+    }
+    .datatable-row-wrapper {
+        padding: 10px;
+        padding-left: 5px;
+        &:hover {
+            background-color: rgba(211, 211, 211, 0.356);
+        }
+    }
+}
+
+.content {
+    a {
+        font-weight: bold;
+    }
+
+    form {
+        display: grid;
+        row-gap: 20px;
+        max-width: 600px;
+        div {
+            display: grid;
+            align-items: center;
+            grid-template-columns: 1fr 4fr;
+            column-gap: 20px;
+            label {
+                font-weight: bold;
+            }
+            input,
+            select {
+                padding: 8px;
+                border-radius: 5px;
+                border: 1px solid rgba(0, 0, 0, 0.37);
+                &:focus {
+                    outline: none;
+                    border: 1px solid rgb(39, 185, 230);
+                }
+            }
+            &:last-child {
+                margin-top: 40px;
+                grid-template-columns: 1fr 1fr;
+
+                input {
+                    font-weight: bold;
+                    border-radius: 0;
+                    background-color: transparent;
+                    border-width: 3px;
+
+                    &:first-child {
+                        border-color: lightblue;
+                        &:enabled:hover {
+                            background-color: rgb(199, 226, 235);
+                        }
+                    }
+                    &:last-child {
+                        border-color: lightcoral;
+                        &:enabled:hover {
+                            background-color: rgb(240, 150, 150);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

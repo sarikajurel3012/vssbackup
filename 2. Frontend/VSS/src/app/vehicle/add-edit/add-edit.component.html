@@ -1,0 +1,31 @@
+<div class="center">
+<form #addEditForm='ngForm' (ngSubmit)="onSubmit()">
+    <div>
+        <label>Registration Number</label>
+        <input type="text" name="regNo" required [(ngModel)]="item.regNo">
+    </div>
+    <div>
+        <label>Model</label>
+        <input type="text" name="model" required [(ngModel)]="item.model">
+    </div>
+    <div>
+        <label>Engine Number</label>
+        <input type="number" name="engineNo" required [(ngModel)]="item.engineNo">
+    </div>
+    <div>
+        <label>Chasis Number</label>
+        <input type="number" name="chasisNo" required [(ngModel)]="item.chasisNo">
+    </div>
+    <div>
+        <label>Customer</label>
+        <select name="customer" required [(ngModel)]="item.customer.id">
+            <option *ngFor="let customer of customerList" [value]="customer.id">{{ customer['name'] }}</option>
+        </select>
+    </div>
+
+    <div>
+        <input type="submit" [disabled]="!addEditForm.form.valid">
+        <input type="reset">
+    </div>
+</form>
+</div>

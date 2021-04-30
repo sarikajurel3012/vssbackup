@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-sm bg-info navbar-dark">
+</nav>
+<div class="container" style="background-color: lightgray;">
+  <h1 style="text-align: center;">Login</h1>
+  <hr>
+    <form #loginform="ngForm" (ngSubmit)="loginUser()">
+      <!-- {{loginform.form.vaild}} -->
+      <small class="text-danger">{{msg}}</small>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" placeholder="Enter email" name="email" [(ngModel)]="user.emailId" required #email="ngModel" 
+        [class.is-invalid]="email.invalid && email.touched"> 
+        <!-- <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email Id is required</small> -->
+        <div *ngIf="email.errors && (email.invalid && email.touched)">
+          <small class="text-danger" *ngIf="email.errors.required">Email Id is required field</small>
+          <small class="text-danger" *ngIf="email.errors.pattern">Enter the valid emailId</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" placeholder="Enter password" name="pwd" [(ngModel)]="user.password" required #password="ngModel" 
+        [class.is-invalid]="password.invalid && password.touched"> 
+        <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required</small>
+      </div>
+      <div class="checkbox" >
+        <label><input type="checkbox" name="remember"> Remember me</label>
+      </div>
+      <button [disabled]="loginform.form.vaild" type="submit" class="btn btn-info">Login</button>
+    </form>
+    <small class="float-right" (click)="gotoregistration()">New User ? Register Here</small>
+  </div>

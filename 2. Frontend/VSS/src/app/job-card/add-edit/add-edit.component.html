@@ -1,0 +1,23 @@
+<div class="center">
+<form #addEditForm='ngForm' (ngSubmit)="onSubmit()">
+    <div>
+        <label>Issues</label>
+        <input type="text" name="issues" required [(ngModel)]="item.issues">
+    </div>
+    <div>
+        <label>Remarks</label>
+        <input type="text" name="remarks" required [(ngModel)]="item.remarks">
+    </div>
+    <div>
+        <label>Vehicle</label>
+        <select name="vehicle" required [(ngModel)]="item.vehicle.id">
+            <option *ngFor="let vehicle of vehicleList" [value]="vehicle.id">{{ vehicle.regNo }} - {{
+                vehicle.customer.name }}</option>
+        </select>
+    </div>
+    <div>
+        <input type="submit" [disabled]="!addEditForm.form.valid">
+        <input type="reset">
+    </div>
+</form>
+</div>
